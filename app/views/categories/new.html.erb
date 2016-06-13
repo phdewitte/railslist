@@ -1,0 +1,19 @@
+<h1 class="new-category">Create A New Category</h1>
+<%= form_for @category do |f| %>
+  <% if @errors %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+    <%= f.hidden_field :creator_id, :value => current_user.id %>
+    <p class="button"> <%= f.submit %> </p>
+<% end %>

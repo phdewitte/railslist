@@ -9,16 +9,19 @@
 <body>
   <header>
     <h1>Brags List</h1>
-  </header>
   <nav>
     <% if !current_user %>
-      <%= link_to "Register", controller: "users", action: "create" %>
-      <%= link_to "Login", controller: "sessions", action: "create"%>
+      <%= link_to "Register", signup_path %> |
+      <%= link_to "Login", login_path %>
     <% else %>
-      Welcome, <%= link_to "User#{current_user.id}", controller: "users", action: "create" %>
-      <%= link_to "Logout", controller: "sessions", action: "delete" %>
+      Welcome, <%= link_to "#{current_user.email}", controller: "users", action: "create" %>
+      <%= link_to "Logout", logout_path %>
     <% end %>
   </nav>
+  </header>
+  <% if current_user %>
+    <%= link_to "Add A New Category", controller: "categories", action: "new" %>
+  <% end %>
 
 <%= yield %>
 

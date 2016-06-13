@@ -1,1 +1,9 @@
-<p>bing bong bang</p>
+<h1 class="category-title"> <%= @category.title %> </h1>
+
+<h3 class="create-article"><%= link_to "Create An Article", articles_path %></h3>
+
+<ul>
+  <% @category.articles.each do |article| %>
+    <li><%= article.title %></li>
+  <% end %>
+</ul>
