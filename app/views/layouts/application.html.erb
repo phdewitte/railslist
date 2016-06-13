@@ -8,13 +8,13 @@
 </head>
 <body>
   <header>
-    <h1>Brags List</h1>
+    <a href="/"><h1>Brags List</h1></a>
   <nav>
     <% if !current_user %>
       <%= link_to "Register", signup_path %> |
       <%= link_to "Login", login_path %>
     <% else %>
-      Welcome, <%= link_to "#{current_user.email}", controller: "users", action: "create" %>
+      Welcome, <%= current_user.email %> |
       <%= link_to "Logout", logout_path %>
     <% end %>
   </nav>

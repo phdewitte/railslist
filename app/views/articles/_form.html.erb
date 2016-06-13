@@ -1,0 +1,27 @@
+<%= form_for [@category,@article] do |f| %>
+  <% if @errors %>
+    <div class="error_messages">
+      <h2>Form is Invalid</h2>
+      <ul>
+        <% @errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :price %>
+    <%= f.text_area :price %>
+  </p>
+  <%= f.hidden_field :author_id, :value => current_user.id %>
+  <p class="button"><%= f.submit %></p>
+<% end %>

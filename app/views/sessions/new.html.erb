@@ -3,7 +3,7 @@
 <%= form_tag sessions_path do %>
   <div class="error_messages">
     <% if @error %>
-      <p>@error</p>
+      <p><%= @error %></p>
     <% end %>
   </div>
   <p>
