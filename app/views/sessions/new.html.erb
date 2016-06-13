@@ -1,0 +1,9 @@
+<h1>Login</h1>
+
+<%= form_for @user do |f| %>
+  <div class="error_messages">
+    <% if @error %>
+      <p>@error</p>
+    <% end %>
+  <% end %>
+<% end %>

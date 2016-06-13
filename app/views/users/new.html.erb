@@ -1,0 +1,28 @@
+<h1>Sign Up to Brag</h1>
+
+<%= form_for @user do |f| %>
+  <% if @errors %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>
+
