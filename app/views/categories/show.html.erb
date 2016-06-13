@@ -1,9 +1,9 @@
 <h1 class="category-title"> <%= @category.title %> </h1>
 
-<h3 class="create-article"><%= link_to "Create An Article", articles_path %></h3>
+<% if current_user %>
+  <h3 class="create-article"><%= link_to "Create An Article", new_category_article_path(@category) %></h3>
+<% end %>
 
-<ul>
   <% @category.articles.each do |article| %>
-    <li><%= article.title %></li>
+    <h3><%= link_to "#{article.title}", category_article_path(@category.id, article.id) %></h3>
   <% end %>
-</ul>

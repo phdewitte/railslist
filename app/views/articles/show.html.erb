@@ -1,0 +1,11 @@
+<h1 class="article-title"> <%= @article.title %> </h1>
+
+<p class="article-body"><%= @article.body %></p>
+
+<p class="article-price"> $<%= @article.price %> </p>
+
+<% if (current_user) && (current_user.id == @article.author_id) %>
+  <%= link_to "Edit This Article", edit_category_article_path %><BR>
+  <%= link_to "Delete This Article", category_article_path(@category, @article), method: "delete" %>
+<% end %>
+
